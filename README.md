@@ -1,4 +1,4 @@
-# MIKROE 4-20 mA R & T Click ![Latest release](https://img.shields.io/github/v/release/Dennis-van-Gils/MIKROE_4_20mA_RT_Click) [![License:MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://github.com/Dennis-van-Gils/MIKROE_4_20mA_RT_Click/blob/master/LICENSE) [![Documentation](https://img.shields.io/badge/Docs-Doxygen-blue)](https://dennis-van-gils.github.io/MIKROE_4_20mA_RT_Click)
+# MIKROE 4-20 mA R & T Click ![Latest release](https://img.shields.io/github/v/release/Dennis-van-Gils/MIKROE_4_20mA_RT_Click) [![Build Status](https://travis-ci.com/Dennis-van-Gils/MIKROE_4_20mA_RT_Click.svg?branch=main)](https://app.travis-ci.com/github/Dennis-van-Gils/MIKROE_4_20mA_RT_Click) [![License:MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://github.com/Dennis-van-Gils/MIKROE_4_20mA_RT_Click/blob/master/LICENSE) [![Documentation](https://img.shields.io/badge/Docs-Doxygen-blue)](https://dennis-van-gils.github.io/MIKROE_4_20mA_RT_Click)
 
 An Arduino library for the 4-20 mA R & T Click Boards of MIKROE.
 

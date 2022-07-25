@@ -8,10 +8,9 @@ cache:
 
 env:
   - PLATFORMIO_CI_SRC=examples/R_Click/R_Click.ino
-  - PLATFORMIO_CI_SRC=src
 
 install:
   - pip install -U platformio
 
 script:
-  - platformio ci --lib="." --board=TYPE_1 --board=TYPE_2 --board=TYPE_N
+  - platformio ci --lib="." --project-conf=platformio.ini

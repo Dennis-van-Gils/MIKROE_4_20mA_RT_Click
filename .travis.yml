@@ -1,16 +1,23 @@
 language: python
 python:
-  - "3.8"
+    - "3.9"
 
+# Cache PlatformIO packages using Travis CI container-based infrastructure
+sudo: false
 cache:
   directories:
     - "~/.platformio"
+    - $HOME/.cache/pip
 
 env:
   - PLATFORMIO_CI_SRC=examples/R_Click/R_Click.ino
+  - PLATFORMIO_CI_SRC=examples/R_Click_moving_avg/R_Click_moving_avg.ino
+  - PLATFORMIO_CI_SRC=examples/RT_Click/RT_Click.ino
+  - PLATFORMIO_CI_SRC=examples/T_Click/T_Click.ino
 
 install:
   - pip install -U platformio
+  - pio update
 
 script:
-  - platformio ci --lib="." --project-conf=platformio.ini
+  - pio ci --lib="." --project-conf=platformio.ini

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ma2bitval_0',['mA2bitval',['../class_t___click.html#a21143c5ba82ed6e00ccd41f287e0902a',1,'T_Click']]]
+  ['poll_5fema_0',['poll_EMA',['../class_r___click.html#a8fa6e760bb08a3a9f1b4824d22e8f7f0',1,'R_Click']]]
 ];

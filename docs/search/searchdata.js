@@ -3,8 +3,8 @@ var indexSectionsWithContent =
   0: "abdgmprst",
   1: "rt",
   2: "m",
-  3: "bdgmprst",
-  4: "pr",
+  3: "bgmprst",
+  4: "dpr",
   5: "a"
 };
 

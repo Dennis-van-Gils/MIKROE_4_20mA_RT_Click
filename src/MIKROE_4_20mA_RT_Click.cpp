@@ -2,8 +2,8 @@
  * @file    MIKROE_4_20mA_RT_Click.cpp
  * @author  Dennis van Gils (vangils.dennis@gmail.com)
  * @version https://github.com/Dennis-van-Gils/MIKROE_4_20mA_RT_Click
- * @version 1.0.0
- * @date    22-07-2022
+ * @version 1.1.0
+ * @date    25-07-2022
  *
  * @mainpage An Arduino library for the 4-20 mA R & T Click Boards of MIKROE.
  *
@@ -38,8 +38,13 @@
  * @section author Author
  * Dennis van Gils (vangils.dennis@gmail.com)
  *
+ * @section version Version
+ * - https://github.com/Dennis-van-Gils/MIKROE_4_20mA_RT_Click
+ * - v1.1.0
+ *
  * @section Changelog
- * v1.0.0 - Initial release
+ * - v1.1.0 - Fixed SPI settings not getting initialized properly in Arduino IDE
+ * - v1.0.0 - Initial release
  *
  * @section license License
  * MIT License. See the LICENSE file for details.
@@ -95,9 +100,7 @@ T_Click::T_Click(uint8_t CS_pin, const RT_Click_Calibration calib) {
   calib_ = calib;
 }
 
-void T_Click::set_SPI_clock(uint32_t clk_freq_Hz) {
-  SPI_settings_ = SPISettings(clk_freq_Hz, MSBFIRST, SPI_MODE0);
-}
+void T_Click::set_SPI_clock(uint32_t clk_freq_Hz) { SPI_clock_ = clk_freq_Hz; }
 
 void T_Click::begin() {
   SPI.begin();
@@ -123,7 +126,7 @@ void T_Click::set_mA(float mA) {
   bitval_HI |= 0x30;                 // 0x30 = b00110000
   bitval_LO = bitval_;
 
-  SPI.beginTransaction(SPI_settings_);
+  SPI.beginTransaction(SPISettings(SPI_clock_, MSBFIRST, SPI_MODE0));
   digitalWrite(CS_pin_, LOW);  // Enable slave device
   SPI.transfer(bitval_HI);     // Transfer high byte
   SPI.transfer(bitval_LO);     // Transfer low byte
@@ -158,9 +161,7 @@ R_Click::R_Click(uint8_t CS_pin, const RT_Click_Calibration calib,
       EMA_LP_freq * 1e-6f; // Transform [Hz] to [MHz] to reduce computations
 }
 
-void R_Click::set_SPI_clock(uint32_t clk_freq_Hz) {
-  SPI_settings_ = SPISettings(clk_freq_Hz, MSBFIRST, SPI_MODE0);
-}
+void R_Click::set_SPI_clock(uint32_t clk_freq_Hz) { SPI_clock_ = clk_freq_Hz; }
 
 void R_Click::begin() {
   SPI.begin();
@@ -184,7 +185,7 @@ uint16_t R_Click::read_bitval() {
 
   // The standard Arduino SPI library handles data of 8 bits long. The value
   // decoding the ADC input is 12 bits, hence transfer in two steps.
-  SPI.beginTransaction(SPI_settings_);
+  SPI.beginTransaction(SPISettings(SPI_clock_, MSBFIRST, SPI_MODE0));
   digitalWrite(CS_pin_, LOW);          // Enable slave device
   data_HI = SPI.transfer(0xFF) & 0x1F; // 0x1F = b00011111
   data_LO = SPI.transfer(0xFF);        // 0xFF = b11111111

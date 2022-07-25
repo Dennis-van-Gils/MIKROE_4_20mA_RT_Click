@@ -28,6 +28,7 @@ var NAVTREE =
     [ "An Arduino library for the 4-20 mA R & T Click Boards of MIKROE.", "index.html", [
       [ "Introduction", "index.html#Introduction", null ],
       [ "Author", "index.html#author", null ],
+      [ "Version", "index.html#version", null ],
       [ "Changelog", "index.html#Changelog", null ],
       [ "License", "index.html#license", null ]
     ] ],
@@ -44,7 +45,6 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ]
       ] ]
     ] ]

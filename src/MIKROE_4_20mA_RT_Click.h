@@ -12,7 +12,7 @@
 #include <SPI.h>
 
 /**
- * @brief Default SPI settings for the R and T Click Boards
+ * @brief Default SPI clock frequency in Hz for the R and T Click Boards
  *
  * Maximum SPI clock frequencies taken from the datasheets:
  * - MCP3201 ADC chip (R Click): 1.6 MHz
@@ -20,7 +20,7 @@
  *
  * Hence, we fix the default SPI clock to a comfortable 1 MHz for both.
  */
-const SPISettings DEFAULT_RT_CLICK_SPI_SETTINGS(1000000, MSBFIRST, SPI_MODE0);
+const uint32_t DEFAULT_RT_CLICK_SPI_CLOCK = 1000000;
 
 /**
  * @brief Current threshold in mA below which to indicate a fault state in the R
@@ -112,8 +112,8 @@ public:
   uint16_t get_last_set_bitval();
 
 private:
-  SPISettings SPI_settings_ = DEFAULT_RT_CLICK_SPI_SETTINGS;
-  uint8_t CS_pin_;             // Cable select pin
+  uint32_t SPI_clock_ = DEFAULT_RT_CLICK_SPI_CLOCK; // SPI clock frequency [Hz]
+  uint8_t CS_pin_;                                  // Cable select pin
   RT_Click_Calibration calib_; // Calibration parameters [bitval] to [mA]
   uint16_t bitval_;            // Last set bit value
 };
@@ -254,8 +254,8 @@ public:
   uint32_t get_EMA_obtained_interval();
 
 private:
-  SPISettings SPI_settings_ = DEFAULT_RT_CLICK_SPI_SETTINGS;
-  uint8_t CS_pin_;             // Cable select pin
+  uint32_t SPI_clock_ = DEFAULT_RT_CLICK_SPI_CLOCK; // SPI clock frequency [Hz]
+  uint8_t CS_pin_;                                  // Cable select pin
   RT_Click_Calibration calib_; // Calibration parameters [bitval] to [mA]
 
   // Optional exponential moving average (EMA)

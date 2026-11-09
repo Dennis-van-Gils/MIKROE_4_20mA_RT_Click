@@ -1,1 +1,1 @@
-To turn the R-click from an active receiver (it supplies 16 V by design) to a passive receiver (not supplying any voltage), you have to cut a single trace and solder on a pass-by wire. See the photo.
+To turn the R-click from an active receiver (it supplies 16 V by design) to a passive receiver (not supplying any voltage), you have to cut two traces and solder on two pass-by wires. See the pdf.
